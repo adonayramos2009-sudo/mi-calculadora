@@ -2,8 +2,8 @@ import streamlit as st
 
 st.set_page_config(page_title="Calculadora Científica", page_icon="🧮")
 
-st.title("🧮 Mi Calculadora Científica")
-st.write("Proyecto escolar de software")
+st.title(" Calculadora Científica")
+st.write("Proyecto Modulo 1.1")
 
 n1 = st.number_input("Digite el primer número:", value=0.0)
 n2 = st.number_input("Digite el segundo número:", value=0.0)
