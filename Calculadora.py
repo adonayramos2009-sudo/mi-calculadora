@@ -1,23 +1,37 @@
 import streamlit as st
 
-## ...existing code...
-def calcular_web():
-    st.title("Calculadora Científica")
-    st.write("Proyecto para software")
-    n1 = st.number_input("Digite elprimer número: ")
-    n2 = st.number_input("Digite el segundo número: ")
-    if st.button("Calcular"):
-        addition = n1 + n2
-        subtraction = n1 - n2
-        multiplication = n1 * n2
+st.set_page_config(page_title="Calculadora Científica", page_icon="🧮")
+
+st.title("🧮 Mi Calculadora Científica")
+st.write("Proyecto escolar de software")
+
+n1 = st.number_input("Digite el primer número:", value=0.0)
+n2 = st.number_input("Digite el segundo número:", value=0.0)
+
+st.divider()
+
+if st.button("Calcular Resultados"):
+    addition = n1 + n2
+    subtraction = n1 - n2
+    multiplication = n1 * n2
+    
+    if n2 != 0:
         division = n1 / n2
-        power = n1 ** n2
-        square_root_n1 = n1 ** 0.5
-        if n2 >= 0:
-            st.write("Suma: ", addition)
-        st.write("Resta: ", subtraction)
-        st.write("Multiplicación: ", multiplication)
-        st.write("División: ", division)
-        st.write("Potencia: ", power)
-        st.write("Raíz cuadrada del primer número: ", square_root_n1)   
-# ...existing code...
+    else:
+        division = "Error: División por cero"
+        
+    power = n1 ** n2
+    square_root_n1 = n1 ** 0.5
+
+    st.subheader("Resultados:")
+    st.success(f"Suma: {addition}")
+    st.success(f"Resta: {subtraction}")
+    st.success(f"Multiplicación: {multiplication}")
+    
+    if n2 != 0:
+        st.success(f"División: {division}")
+    else:
+        st.error(division)
+        
+    st.info(f"Potencia: {power}")
+    st.info(f"Raíz cuadrada del primer número: {square_root_n1}")
